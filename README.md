@@ -4,7 +4,9 @@ Connects SVG paths whose endpoints overlap into single continuous paths. Works a
 
 ## What it does
 
-SVG editors often export shapes as many short disconnected paths instead of one continuous path. This tool finds paths within the same `<g>` group whose start/end points are within a configurable tolerance, and joins them together — including reversing paths when needed to make them connect.
+SVG editors and CAD tools often export shapes as many short disconnected paths instead of one continuous path. A concrete example is the **LC Interlocking workbench in FreeCAD**, which exports finger-joint cuts as individual path segments — making further post-processing in Inkscape (e.g. applying offsets or boolean operations on whole shapes) impossible without first merging them.
+
+This tool finds paths within the same `<g>` group whose start/end points are within a configurable tolerance, and joins them together — including reversing paths when needed to make them connect.
 
 **Before:**
 ```xml
@@ -32,8 +34,6 @@ Open [`index.html`](index.html) locally or visit the [GitHub Pages site](https:/
 4. Download the result as `<filename>_connected.svg`
 
 All processing happens in the browser — no files are uploaded anywhere.
-
-![UI screenshot](https://i.imgur.com/placeholder.png)
 
 ## CLI
 
