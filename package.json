@@ -1,0 +1,12 @@
+{
+  "name": "svg-connect",
+  "version": "1.0.0",
+  "description": "Connect overlapping SVG path endpoints within groups into single paths",
+  "main": "svg-connect.js",
+  "bin": {
+    "svg-connect": "./svg-connect.js"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.7"
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Path Connector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>SVG Path Connector</h1>
+    <p>Merges overlapping path endpoints within SVG groups into single paths</p>
+  </header>
+
+  <main class="card">
+
+    <!-- Drop zone / file picker -->
+    <div class="drop-zone" id="dropZone" role="button" tabindex="0" aria-label="Select SVG file">
+      <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      <p>Drag &amp; drop an SVG file here</p>
+      <p>or <span class="browse-hint">browse to select</span></p>
+      <input type="file" id="fileInput" accept=".svg" hidden aria-hidden="true">
+    </div>
+
+    <!-- Selected file chip -->
+    <div class="file-info" id="fileInfo" hidden>
+      <span class="file-name" id="fileName"></span>
+      <button class="clear-btn" id="clearBtn" aria-label="Remove file">✕</button>
+    </div>
+
+    <!-- Options -->
+    <div class="options">
+      <label for="tolerance">
+        Tolerance
+        <span class="hint">(SVG units)</span>
+        <input type="number" id="tolerance" value="1.0" min="0" step="0.1">
+      </label>
+    </div>
+
+    <!-- Action -->
+    <button class="btn-primary" id="processBtn" disabled>Connect Paths</button>
+
+    <!-- Result -->
+    <div class="result" id="result" hidden>
+      <p class="stats" id="stats"></p>
+      <a class="btn-download" id="downloadBtn" href="#" download>Download result</a>
+    </div>
+
+    <!-- Error -->
+    <p class="error" id="error" hidden></p>
+
+  </main>
+
+  <footer>
+    <a href="https://github.com/martin-omacht/svg-connect" target="_blank" rel="noopener">svg-connect</a>
+    &mdash; all processing happens locally in your browser
+  </footer>
+
+  <script src="merge.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
