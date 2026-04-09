@@ -7,7 +7,7 @@ const { mergeSVG } = require('./merge');
 
 // --- Config ---
 let inputFile, outputFile;
-let TOLERANCE = 1.0;
+let TOLERANCE = 0.2;
 
 for (const arg of process.argv.slice(2)) {
   if (arg.startsWith('--tolerance=')) TOLERANCE = parseFloat(arg.slice(12));
